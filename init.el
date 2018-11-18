@@ -29,7 +29,7 @@
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "944e706816bc594367bc16a745b746a38aecc55b9ed5b5209e05289df22a5c52" default)))
  '(package-selected-packages
    (quote
-    (emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
+    (restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -126,6 +126,25 @@
 
 ;; Avy character set
 (require 'avy)
+
+;; Dired Omit . Files
+(add-hook 'dired-load-hook '(lambda () (require 'dired-x))) ; Load Dired X when Dired is loaded.
+(add-hook 'dired-mode-hook
+               (lambda ()
+                 ;; Set dired-x buffer-local variables here.  For example:
+                 (dired-omit-mode 1)
+		 (dired-hide-details-mode 1)
+                 ))
+
+;; (require 'direx)
+;; (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
+
+;; Neotree Configuration
+(require 'neotree)
+(global-set-key (kbd "C-x C-j") 'neotree-toggle)
+
+;; Restclient Configuration
+(require 'restclient)
 
 ;; Custom functions
 (defun tom/up-directory ()
