@@ -16,9 +16,6 @@
 ;; Maximize Screen on Startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; Set default working directory
-(setq default-directory "~/Documents")
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -29,7 +26,7 @@
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "944e706816bc594367bc16a745b746a38aecc55b9ed5b5209e05289df22a5c52" default)))
  '(package-selected-packages
    (quote
-    (emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
+    (helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -43,16 +40,9 @@
 ;; Helm Configuration
 (require 'helm)
 (require 'helm-config)
-(require 'helm-ag)
 
-;; God-mode Configuration
+;;God-mode Configuration
 (require 'god-mode)
-
-;; Emmet Configuration
-(require 'emmet-mode)
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-(add-hook 'web-mode-hook 'emmet-mode)
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
 ;; Toggle God-mode with alt-space
 (global-set-key (kbd "M-SPC") 'god-mode-all) ;;Set Globally
@@ -126,6 +116,13 @@
 
 ;; Avy character set
 (require 'avy)
+
+;; Projectile
+(require 'projectile)
+
+;; Make Dired file-name only
+(add-hook 'dired-mode-hook 
+          (lambda () (dired-hide-details-mode +1))) 
 
 ;; Custom functions
 (defun tom/up-directory ()
