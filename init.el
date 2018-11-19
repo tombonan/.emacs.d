@@ -8,10 +8,16 @@
 ;; Solarize theme
 (load-theme 'solarized-light t)
 
-;;;Disable Tool Bar
+;; Disable Tool Bar
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+
+;; Move backups to ~/.saves
+(setq backup-directory-alist `(("." . "~/.saves")))
+
+;; Move autosaves to ~/.saves
+(setq auto-save-file-name-transforms `((".*" "~/.saves/" t)))
 
 ;; Maximize Screen on Startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -29,7 +35,7 @@
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "944e706816bc594367bc16a745b746a38aecc55b9ed5b5209e05289df22a5c52" default)))
  '(package-selected-packages
    (quote
-    (restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
+    (magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -163,6 +169,8 @@
 (global-set-key (kbd "C-c l") 'helm-buffers-list) ;; l for list
 (global-set-key (kbd "C-c u") 'tom/up-directory) ;; U for Up
 (global-set-key (kbd "C-c p") 'helm-projectile) ;; P for project
+
+(global-set-key (kbd "C-x g") 'magit-status) ;; G for Git
 
 (global-set-key (kbd "C-x C-0") 'delete-window)
 (global-set-key (kbd "C-x C-1") 'delete-other-windows)
