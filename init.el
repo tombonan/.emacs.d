@@ -35,7 +35,7 @@
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "944e706816bc594367bc16a745b746a38aecc55b9ed5b5209e05289df22a5c52" default)))
  '(package-selected-packages
    (quote
-    (magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
+    (multiple-cursors magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -152,8 +152,16 @@
 ;; Restclient Configuration
 (require 'restclient)
 
+;; Multiple Cursors Configuration
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines) ;; Add cursor to each line in region selection
+(global-set-key (kbd "C->") 'mc/mark-next-like-this) ;; Add cursor to non-continuous selection
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(define-key mc/keymap (kbd "<return>") nil) ;; Disable only with C-g
+
 ;; Custom functions
-(defun tom/up-directory ()
+(defun tom/up-directory () ;; Move open up dired one directory up
   (interactive)
   (if (string= major-mode "dired-mode")
       (call-interactively 'dired-up-directory)
