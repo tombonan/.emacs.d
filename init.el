@@ -178,7 +178,7 @@
 (global-set-key (kbd "C-c u") 'tom/up-directory) ;; U for Up
 (global-set-key (kbd "C-c p") 'helm-projectile) ;; P for project
 
-(global-set-key (kbd "C-x g") 'magit-status) ;; G for Git
+(global-set-key (kbd "C-c g") 'magit-status) ;; G for Git
 
 (global-set-key (kbd "C-x C-0") 'delete-window)
 (global-set-key (kbd "C-x C-1") 'delete-other-windows)
