@@ -3,10 +3,14 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	avy-goto-char
+	complete-symbol
 	god-mode-all
+	keyboard-escape-quit
 	sgml-delete-tag
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	indent-for-tab-command
 	))
