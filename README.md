@@ -19,6 +19,8 @@ My set of emacs settings. Global and plugin settings are housed in the **setting
 * `C->` add cursor to next like selected
 * `C-x C-<` add cursor to all like selected
 
+* `M-g M-g` go to line with line references
+
 #### Other Plugin Keybindings
 * `C-c g` open magit and show status
 

@@ -1,3 +1,5 @@
+;; Buffer related functions
+
 (defun tom/rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
   (interactive)
@@ -23,7 +25,6 @@
         (linum-mode 1)
         (goto-line (read-number "Goto line: ")))
     (linum-mode -1)))
-
 
 (provide 'file-defuns)
 
