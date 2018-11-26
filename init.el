@@ -8,10 +8,13 @@
 ;; Solarize theme
 (load-theme 'solarized-light t)
 
-;; Disable Tool Bar
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
+;; Turn off mouse interface early in startup to avoid momentary display
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; No splash screen
+(setq inhibit-startup-message t)
 
 ;; Move backups to ~/.saves
 (setq backup-directory-alist `(("." . "~/.saves")))
@@ -23,7 +26,7 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; Set default working directory
-(setq default-directory "~/Documents")
+(setq default-directory "~/Documents/")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -47,6 +50,17 @@
 (setq mac-option-modifier 'meta) ; set alt-key to meta
 (setq mac-command-modifier nil) ; set cmd-key to nil
 
+
+;; Load custom directorys
+(mapc 'load (file-expand-wildcards "~/.emacs.d/defuns/*.el")) ;; emacs functions directory
+(mapc 'load (file-expand-wildcards "~/.emacs.d/settings/*.el")) ;; emacs/plugin settings directory
+
+
+
+
+
+
+
 ;; Helm Configuration
 (require 'helm)
 (require 'helm-config)
@@ -60,23 +74,6 @@
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'web-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-
-;; Toggle God-mode with alt-space
-(global-set-key (kbd "M-SPC") 'god-mode-all) ;;Set Globally
-(define-key god-local-mode-map (kbd "i") 'god-mode-all) ;;Kill by pressing 'i' in God Mode
-
-;;God-mode change Mode Line
-(defun tom/update-cursor ()
-  (if god-local-mode
-      (progn (setq cursor-type 'box)
-	     (set-face-background 'mode-line "firebrick")
-	     (set-face-foreground 'mode-line "white"))
-    (progn (setq cursor-type 'bar)
-	   (set-face-background 'mode-line "steelblue3")
-	   (set-face-foreground 'mode-line "white"))))
-
-(add-hook 'god-mode-enabled-hook 'tom/update-cursor)
-(add-hook 'god-mode-disabled-hook 'tom/update-cursor)
 
 ;; The Default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
@@ -171,23 +168,12 @@
       (call-interactively 'dired-up-directory)
     (find-file ".")))
 
-;; Custom keybindings
-;; The C-c <SPC> prefix I'm leaving for major-mode-specific keybindings.
-
-(global-set-key (kbd "C-c c") 'avy-goto-char) ;; c for char
-(global-set-key (kbd "C-c d") 'avy-goto-char-2) ;; d for double char
-(global-set-key (kbd "C-c L") 'avy-goto-line) ;; L for line
-(global-set-key (kbd "C-c s") 'avy-goto-char-timer) ;; s for search
-(global-set-key (kbd "C-c l") 'helm-buffers-list) ;; l for list
-(global-set-key (kbd "C-c u") 'tom/up-directory) ;; U for Up
-(global-set-key (kbd "C-c p") 'helm-projectile) ;; P for project
-
-(global-set-key (kbd "C-c g") 'magit-status) ;; g for git
-(global-set-key (kbd "C-z") 'undo) ;; z for standard mac keybinding
-(global-set-key (kbd "C-S-z") 'undo-tree-redo) ;; shift z to undo
-(global-set-key (kbd "C-x u") 'undo-tree-visualize) ;; u for undo
-
-(global-set-key (kbd "C-x C-0") 'delete-window)
-(global-set-key (kbd "C-x C-1") 'delete-other-windows)
-(global-set-key (kbd "C-x C-2") 'split-window-below)
-(global-set-key (kbd "C-x C-3") 'split-window-right)
+(global-set-key [remap goto-line] 'tom/goto-line-with-feedback)
+(defun tom/goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (goto-line (read-number "Goto line: ")))
+    (linum-mode -1)))
