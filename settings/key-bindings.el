@@ -7,7 +7,6 @@
 (global-set-key (kbd "C-c s") 'avy-goto-char-timer) ;; s for search
 (global-set-key (kbd "C-c l") 'helm-buffers-list) ;; l for list
 (global-set-key (kbd "C-c u") 'tom/up-directory) ;; U for Up
-(global-set-key (kbd "C-c p") 'helm-projectile) ;; P for project
 
 (global-set-key (kbd "C-c g") 'magit-status) ;; g for git
 (global-set-key (kbd "C-z") 'undo) ;; z for standard mac keybinding
