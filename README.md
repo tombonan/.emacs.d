@@ -16,6 +16,9 @@ My set of emacs settings. Global and plugin settings are housed in the **setting
 * `C-z` undo
 * `C-S-z` redo
 * `C-x u` open undo-tree visualization
+* `C->` add cursor to next like selected
+* `C-x C-<` add cursor to all like selected
 
 #### Other Plugin Keybindings
 * `C-c g` open magit and show status
+

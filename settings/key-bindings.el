@@ -12,9 +12,9 @@
 (global-set-key (kbd "C-z") 'undo) ;; z for standard mac keybinding
 (global-set-key (kbd "C-S-z") 'undo-tree-redo) ;; shift z to undo
 (global-set-key (kbd "C-x u") 'undo-tree-visualize) ;; u for undo
-
+(global-set-key (kbd "C-x C-j") 'neotree-toggle)
 (global-set-key (kbd "C-x C-r") 'tom/rename-current-buffer-file)
-
+(global-set-key [remap goto-line] 'tom/goto-line-with-feedback)
 (global-set-key (kbd "C-x C-0") 'delete-window)
 (global-set-key (kbd "C-x C-1") 'delete-other-windows)
 (global-set-key (kbd "C-x C-2") 'split-window-below)

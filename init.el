@@ -13,20 +13,50 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;; No splash screen
-(setq inhibit-startup-message t)
-
-;; Move backups to ~/.saves
-(setq backup-directory-alist `(("." . "~/.saves")))
-
-;; Move autosaves to ~/.saves
-(setq auto-save-file-name-transforms `((".*" "~/.saves/" t)))
-
 ;; Maximize Screen on Startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; Set default working directory
+;; No splash screen
+(setq inhibit-startup-message t)
+
+;; Remap meta key to alt from command
+(setq mac-option-modifier 'meta) 
+(setq mac-command-modifier nil) 
+
+;; Move backups and autosaves to ~/.saves directory
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq auto-save-file-name-transforms `((".*" "~/.saves/" t)))
+
+;; Set documents to default working directory
 (setq default-directory "~/Documents/")
+
+;; Load custom directorys
+(mapc 'load (file-expand-wildcards "~/.emacs.d/defuns/*.el")) ;; emacs functions directory
+(mapc 'load (file-expand-wildcards "~/.emacs.d/settings/*.el")) ;; emacs/plugin settings directory
+
+;; Dired Omit . Files
+(add-hook 'dired-load-hook '(lambda () (require 'dired-x))) ; Load Dired X when Dired is loaded.
+(add-hook 'dired-mode-hook
+               (lambda ()
+                 ;; Set dired-x buffer-local variables here.  For example:
+                 (dired-omit-mode 1)
+		 (dired-hide-details-mode 1)
+                 ))
+
+;; Package requirements
+(require 'neotree)
+(require 'undo-tree)
+(require 'restclient)
+(require 'avy)
+(require 'god-mode)
+(require 'emmet-mode)
+
+;; Custom package hooks and initialization
+(global-undo-tree-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'web-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -46,134 +76,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(mode-line-buffer-id ((t (:foreground "cornsilk" :weight bold)))))
-
-(setq mac-option-modifier 'meta) ; set alt-key to meta
-(setq mac-command-modifier nil) ; set cmd-key to nil
-
-
-;; Load custom directorys
-(mapc 'load (file-expand-wildcards "~/.emacs.d/defuns/*.el")) ;; emacs functions directory
-(mapc 'load (file-expand-wildcards "~/.emacs.d/settings/*.el")) ;; emacs/plugin settings directory
-
-
-
-
-
-
-
-;; Helm Configuration
-(require 'helm)
-(require 'helm-config)
-(require 'helm-ag)
-
-;; God-mode Configuration
-(require 'god-mode)
-
-;; Emmet Configuration
-(require 'emmet-mode)
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-(add-hook 'web-mode-hook 'emmet-mode)
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-
-;; The Default "C-x c" is quite close to "C-x C-c", which quits Emacs.
-;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
-;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
-
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-
-(when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
-
-(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-      helm-ff-file-name-history-use-recentf t
-      helm-echo-input-in-header-line t)
-
-(defun spacemacs//helm-hide-minibuffer-maybe ()
-  "Hide minibuffer in Helm session if we use the header line as input field."
-  (when (with-helm-buffer helm-echo-input-in-header-line)
-    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-      (overlay-put ov 'window (selected-window))
-      (overlay-put ov 'face
-                   (let ((bg-color (face-background 'default nil)))
-                     `(:background ,bg-color :foreground ,bg-color)))
-      (setq-local cursor-type nil))))
-
-
-(add-hook 'helm-minibuffer-set-up-hook
-          'spacemacs//helm-hide-minibuffer-maybe)
-
-(setq helm-autoresize-max-height 0)
-(setq helm-autoresize-min-height 20)
-(helm-autoresize-mode 1)
-
-(helm-mode 1)
-
-;;Web-mode
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
-;; Avy character set
-(require 'avy)
-
-;; Dired Omit . Files
-(add-hook 'dired-load-hook '(lambda () (require 'dired-x))) ; Load Dired X when Dired is loaded.
-(add-hook 'dired-mode-hook
-               (lambda ()
-                 ;; Set dired-x buffer-local variables here.  For example:
-                 (dired-omit-mode 1)
-		 (dired-hide-details-mode 1)
-                 ))
-
-;; (require 'direx)
-;; (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
-
-;; Neotree Configuration
-(require 'neotree)
-(global-set-key (kbd "C-x C-j") 'neotree-toggle)
-
-(require 'undo-tree)
-(global-undo-tree-mode)
-
-;; Restclient Configuration
-(require 'restclient)
-
-;; Multiple Cursors Configuration
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines) ;; Add cursor to each line in region selection
-(global-set-key (kbd "C->") 'mc/mark-next-like-this) ;; Add cursor to non-continuous selection
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(define-key mc/keymap (kbd "<return>") nil) ;; Disable only with C-g
-
-;; Custom functions
-(defun tom/up-directory () ;; Move open up dired one directory up
-  (interactive)
-  (if (string= major-mode "dired-mode")
-      (call-interactively 'dired-up-directory)
-    (find-file ".")))
-
-(global-set-key [remap goto-line] 'tom/goto-line-with-feedback)
-(defun tom/goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input"
-  (interactive)
-  (unwind-protect
-      (progn
-        (linum-mode 1)
-        (goto-line (read-number "Goto line: ")))
-    (linum-mode -1)))
