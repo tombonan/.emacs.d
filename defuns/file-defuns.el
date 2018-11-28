@@ -30,6 +30,12 @@
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
 
+(defun tom/touch-buffer-file ()
+  (interactive)
+  (insert " ")
+  (backward-delete-char 1)
+  (save-buffer))
+
 (defun tom/goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input"
   (interactive)

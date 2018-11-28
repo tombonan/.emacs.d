@@ -21,7 +21,7 @@
 
 ;; Remap meta key to alt from command
 (setq mac-option-modifier 'meta) 
-(setq mac-command-modifier nil) 
+(setq mac-command-modifier 'super) 
 
 ;; Move backups and autosaves to ~/.saves directory
 (setq backup-directory-alist `(("." . "~/.saves")))
