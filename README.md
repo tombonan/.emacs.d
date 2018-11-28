@@ -18,7 +18,6 @@ My set of emacs settings. Global and plugin settings are housed in the **setting
 * `C-x u` open undo-tree visualization
 * `C->` add cursor to next like selected
 * `C-x C-<` add cursor to all like selected
-
 * `M-g M-g` go to line with line references
 
 #### Other Plugin Keybindings

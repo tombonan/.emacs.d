@@ -26,5 +26,13 @@
         (goto-line (read-number "Goto line: ")))
     (linum-mode -1)))
 
+(defun tom/copy-current-file-path ()
+  "Add current file path to kill ring. Limits the filename to project root if possible."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (kill-new (if eproject-mode
+                  (s-chop-prefix (eproject-root) filename)
+                filename))))
+
 (provide 'file-defuns)
 
