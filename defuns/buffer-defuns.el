@@ -16,4 +16,11 @@
   (split-window-below)
   (windmove-below))
 
+(defun tom/kill-other-buffers ()
+    "Kill all buffers except for current"
+    (interactive)
+    (mapc 'kill-buffer 
+          (delq (current-buffer) 
+                (remove-if-not 'buffer-file-name (buffer-list)))))
+
 (provide 'buffer-defuns)

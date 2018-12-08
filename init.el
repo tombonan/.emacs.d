@@ -43,6 +43,9 @@
 		 (dired-hide-details-mode 1)
                  ))
 
+;; rsjx-mode for all js files
+(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+
 ;; Package requirements
 (require 'neotree)
 (require 'undo-tree)
@@ -50,6 +53,7 @@
 (require 'avy)
 (require 'god-mode)
 (require 'emmet-mode)
+(require 'rjsx-mode)
 
 ;; Custom package hooks and initialization
 (global-undo-tree-mode)
@@ -69,7 +73,7 @@
  '(magit-dispatch-arguments nil)
  '(package-selected-packages
    (quote
-    (undo-tree multiple-cursors magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
+    (rjsx-mode undo-tree multiple-cursors magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
