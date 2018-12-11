@@ -43,8 +43,6 @@
 		 (dired-hide-details-mode 1)
                  ))
 
-;; rsjx-mode for all js files
-(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
 
 ;; Package requirements
 (require 'neotree)
@@ -54,6 +52,9 @@
 (require 'god-mode)
 (require 'emmet-mode)
 (require 'rjsx-mode)
+
+;; rsjx-mode for all js files
+(add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . rjsx-mode))
 
 ;; Custom package hooks and initialization
 (global-undo-tree-mode)
