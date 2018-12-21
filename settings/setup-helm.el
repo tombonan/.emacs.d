@@ -39,6 +39,14 @@
 (add-hook 'helm-minibuffer-set-up-hook
           'spacemacs//helm-hide-minibuffer-maybe)
 
+;; Make buffer list full screen
+;; https://www.reddit.com/r/emacs/comments/345vtl/make_helm_window_at_the_bottom_without_using_any/
+(add-to-list 'display-buffer-alist
+                    `(,(rx bos "*helm" (* not-newline) "*" eos)
+                         (display-buffer-in-side-window)
+                         (inhibit-same-window . t)
+                         (window-height . 0.4)))
+
 (setq helm-autoresize-max-height 0)
 (setq helm-autoresize-min-height 20)
 (helm-autoresize-mode 1)

@@ -6,15 +6,19 @@
       (call-interactively 'dired-up-directory)
     (find-file ".")))
 
+(defun tom/open-emacs-config () ;; Open emacs config file
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
 (defun tom/split-window-right-and-move-there ()
   (interactive)
-  (split-window-right)
-  (windmove-right))
+  (call-interactively 'split-window-right)
+  (call-interactively 'windmove-right))
 
 (defun tom/split-window-below-and-move-there ()
   (interactive)
-  (split-window-below)
-  (windmove-below))
+  (call-interactively 'split-window-below)
+  (call-interactively 'windmove-below))
 
 (defun tom/kill-other-buffers ()
     "Kill all buffers except for current"

@@ -13,5 +13,6 @@
 (setq mc/cmds-to-run-once
       '(
 	god-mode-self-insert
+	god-mode-all
 	indent-for-tab-command
 	))
