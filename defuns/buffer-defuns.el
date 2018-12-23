@@ -18,7 +18,7 @@
 (defun tom/split-window-below-and-move-there ()
   (interactive)
   (call-interactively 'split-window-below)
-  (call-interactively 'windmove-below))
+  (call-interactively 'windmove-down))
 
 (defun tom/kill-other-buffers ()
     "Kill all buffers except for current"

@@ -5,7 +5,6 @@
       '(
 	avy-goto-char
 	complete-symbol
-	god-mode-all
 	keyboard-escape-quit
 	sgml-delete-tag
 	))
