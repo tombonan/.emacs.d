@@ -11,7 +11,9 @@
 
 (setq mc/cmds-to-run-once
       '(
-	god-mode-self-insert
 	god-mode-all
+	god-mode-self-insert
+	helm-maybe-exit-minibuffer
 	indent-for-tab-command
+	rjsx-electric-lt
 	))

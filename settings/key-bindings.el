@@ -50,4 +50,7 @@
 ;; Dired commands
 (global-set-key (kbd "C-c C-j") 'dired-jump) (autoload 'dired-jump "dired") ;; j for jump
 
+;; Smartparens
+(global-set-key (kbd "C-c )") 'sp-splice-sexp) ;; delete open and close tags around cursor
+
 (provide 'key-bindings)
