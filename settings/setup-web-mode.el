@@ -9,8 +9,6 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-
-(setq web-mode-enable-current-column-highlight t)
 (setq web-mode-enable-current-element-highlight t)
 
 (provide 'setup-web-mode)
