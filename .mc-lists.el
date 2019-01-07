@@ -5,6 +5,7 @@
       '(
 	avy-goto-char
 	complete-symbol
+	helm-ff-RET
 	keyboard-escape-quit
 	sgml-delete-tag
 	))
@@ -13,6 +14,7 @@
       '(
 	god-mode-all
 	god-mode-self-insert
+	helm-M-x
 	helm-maybe-exit-minibuffer
 	indent-for-tab-command
 	rjsx-electric-lt
