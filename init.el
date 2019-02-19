@@ -42,7 +42,7 @@
 ;; Dired Omit . Files
 (add-hook 'dired-load-hook '(lambda () (require 'dired-x))) ; Load Dired X when Dired is loaded.
 (add-hook 'dired-mode-hook
-               (lambda ()
+          (lambda ()
                  ;; Set dired-x buffer-local variables here.  For example:
                  (dired-omit-mode 1)
 		 (dired-hide-details-mode 1)
@@ -80,7 +80,7 @@
  '(magit-dispatch-arguments nil)
  '(package-selected-packages
    (quote
-    (indium fireplace smartparens rjsx-mode undo-tree multiple-cursors magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
+    (helm-flyspell indium fireplace smartparens rjsx-mode undo-tree multiple-cursors magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

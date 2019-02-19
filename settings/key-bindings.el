@@ -47,6 +47,10 @@
 (global-set-key (kbd "<s-up>") 'windmove-up)
 (global-set-key (kbd "<s-down>") 'windmove-down)
 
+;; Org Mode
+(global-set-key (kbd "C-c a") 'org-agenda) ;; a for agenda
+
+
 ;; Dired commands
 (global-set-key (kbd "C-c C-j") 'dired-jump) (autoload 'dired-jump "dired") ;; j for jump
 

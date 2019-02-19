@@ -5,9 +5,13 @@
       '(
 	avy-goto-char
 	complete-symbol
+	electric-newline-and-maybe-indent
 	helm-ff-RET
+	helm-keyboard-quit
 	keyboard-escape-quit
 	sgml-delete-tag
+	sgml-slash
+	tom/move-line-up
 	))
 
 (setq mc/cmds-to-run-once
@@ -17,5 +21,7 @@
 	helm-M-x
 	helm-maybe-exit-minibuffer
 	indent-for-tab-command
+	mac-mwheel-scroll
+	rjsx-electric-gt
 	rjsx-electric-lt
 	))
