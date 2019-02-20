@@ -10,6 +10,12 @@
 ;; https://stackoverflow.com/questions/11384516/how-to-make-all-org-files-under-a-folder-added-in-agenda-list-automatically
 (load-library "find-lisp")
 (setq org-agenda-files
-   (find-lisp-find-files "~/Dropbox/org/" "\.org$"))
+      (find-lisp-find-files "~/Dropbox/org/" "\.org$"))
+
+;; Timestamp when closing todo
+(setq org-log-done 'time)
+
+;; Prompt for note when closing todo
+;; (setq org-log-done 'note)
 
 (provide 'setup-org)

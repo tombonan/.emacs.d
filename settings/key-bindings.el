@@ -49,6 +49,7 @@
 
 ;; Org Mode
 (global-set-key (kbd "C-c a") 'org-agenda) ;; a for agenda
+(global-set-key (kbd "C-c t") 'org-todo-list) ;; t for todo
 
 
 ;; Dired commands
