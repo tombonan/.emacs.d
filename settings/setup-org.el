@@ -15,6 +15,17 @@
 ;; Timestamp when closing todo
 (setq org-log-done 'time)
 
+;; Use org-bullets instead of asterisks
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; Add in progress to TODO sequence
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "DONE")))
+
+;; Hide emphasis markers 
+(setq org-hide-emphasis-markers t)
+
 ;; Prompt for note when closing todo
 ;; (setq org-log-done 'note)
 
