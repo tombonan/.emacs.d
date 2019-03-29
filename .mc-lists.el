@@ -22,7 +22,6 @@
 	helm-M-x
 	helm-maybe-exit-minibuffer
 	indent-for-tab-command
-	kill-region
 	mac-mwheel-scroll
 	mark-whole-buffer
 	rjsx-electric-gt

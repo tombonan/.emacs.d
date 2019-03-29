@@ -48,9 +48,9 @@
 (global-set-key (kbd "<s-down>") 'windmove-down)
 
 ;; Org Mode
+(global-set-key (kbd "C-c o") 'tom/open-org-default) ;; o for org
 (global-set-key (kbd "C-c a") 'org-agenda) ;; a for agenda
 (global-set-key (kbd "C-c t") 'org-todo-list) ;; t for todo
-
 
 ;; Dired commands
 (global-set-key (kbd "C-c C-j") 'dired-jump) (autoload 'dired-jump "dired") ;; j for jump

@@ -10,6 +10,10 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
+(defun tom/open-org-default () ;; Open default org/notes.org file
+  (interactive)
+  (find-file "~/Dropbox/org/notes.org"))
+
 (defun tom/split-window-right-and-move-there ()
   (interactive)
   (call-interactively 'split-window-right)
