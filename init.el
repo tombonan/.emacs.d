@@ -83,7 +83,7 @@
  '(magit-dispatch-arguments nil)
  '(package-selected-packages
    (quote
-    (markdown-mode org-bullets helm-flyspell indium fireplace smartparens rjsx-mode undo-tree multiple-cursors magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
+    (markdown-mode org-bullets helm-flyspell fireplace smartparens rjsx-mode undo-tree multiple-cursors magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

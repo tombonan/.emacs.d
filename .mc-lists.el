@@ -9,6 +9,7 @@
 	helm-ff-RET
 	helm-keyboard-quit
 	keyboard-escape-quit
+	markdown-outdent-or-delete
 	sgml-delete-tag
 	sgml-slash
 	tom/move-line-up
