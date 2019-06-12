@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	View-leave
 	avy-goto-char
 	complete-symbol
 	electric-newline-and-maybe-indent
@@ -12,11 +13,13 @@
 	markdown-outdent-or-delete
 	sgml-delete-tag
 	sgml-slash
+	sp-remove-active-pair-overlay
 	tom/move-line-up
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	emmet-expand-line
 	god-mode-all
 	god-mode-self-insert
 	helm-M-x
@@ -24,6 +27,8 @@
 	indent-for-tab-command
 	mac-mwheel-scroll
 	mark-whole-buffer
+	org-return
+	org-self-insert-command
 	rjsx-electric-gt
 	rjsx-electric-lt
 	))

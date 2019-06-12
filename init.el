@@ -37,7 +37,7 @@
 
 ;; Load custom directorys
 (mapc 'load (file-expand-wildcards "~/.emacs.d/defuns/*.el")) ;; emacs functions directory
-(mapc 'load (file-expand-wildcards "~/.emacs.d/settings/*.el")) ;; emacs/plugin settings directory
+(mapc 'load (file-expand-wildcards "~/.emacs.d/settings/*.el")) ;; emacs package settings directory
 
 ;; Dired Omit . Files
 (add-hook 'dired-load-hook '(lambda () (require 'dired-x))) ; Load Dired X when Dired is loaded.

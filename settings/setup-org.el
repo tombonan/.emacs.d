@@ -17,16 +17,28 @@
 
 ;; Use org-bullets instead of asterisks
 (require 'org-bullets)
+
+(setq org-startup-indented t
+      org-bullets-bullet-list '(">") ;; no bullets, needs org-bullets package
+      org-ellipsis " v " ;; folding symbol
+      org-pretty-entities t
+      org-hide-emphasis-markers t) ;; Hide emphasis markers
+
+(custom-theme-set-faces
+ 'user
+ '(variable-pitch ((t (:family "Source Sans Pro" :weight regular)))))
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; Add in progress to TODO sequence
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "DONE")))
 
-;; Hide emphasis markers 
-(setq org-hide-emphasis-markers t)
-
 ;; Prompt for note when closing todo
 ;; (setq org-log-done 'note)
+
+;; Set path to the reading list org file
+(setq org-books-file "~/Dropbox/org/book-list.org")
 
 (provide 'setup-org)

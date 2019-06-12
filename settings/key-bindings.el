@@ -48,7 +48,6 @@
 (global-set-key (kbd "<s-down>") 'windmove-down)
 
 ;; Org Mode
-(global-set-key (kbd "C-c o") 'tom/open-org-default) ;; o for org
 (global-set-key (kbd "C-c a") 'org-agenda) ;; a for agenda
 (global-set-key (kbd "C-c t") 'org-todo-list) ;; t for todo
 
@@ -57,5 +56,9 @@
 
 ;; Smartparens
 (global-set-key (kbd "C-c )") 'sp-splice-sexp) ;; delete open and close tags around cursor
+
+;; Open files or directories
+(global-set-key (kbd "C-c o") 'tom/open-org-default) ;; o for org
+(global-set-key (kbd "C-c e") 'tom/open-emacs-config) ;; e for emacs
 
 (provide 'key-bindings)
