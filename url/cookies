@@ -1,0 +1,18 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".case.law"
+  [url-cookie "__cfduid" "d08293be400fb3652c11905e1c27b0af81542598560" "Tue, 19-Nov-19 03:36:00 GMT" "/" ".case.law" nil])
+ ("amusepapilles.shelfx.com"
+  [url-cookie "locale" "en-us" "Sun, 23 Jun 2019 20:20:33 -0000" "/" "amusepapilles.shelfx.com" nil]))
+)
+(setq url-cookie-secure-storage
+ '((".gitignore.io"
+  [url-cookie "__cfduid" "d506a6b859af1f657f7166939070dd52c1555712384" "Sat, 18-Apr-20 22:19:44 GMT" "/" ".gitignore.io" t]))
+)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:
