@@ -58,6 +58,7 @@
 (require 'emmet-mode)
 (require 'rjsx-mode)
 (require 'smartparens-config)
+(require 'p4)
 
 ;; Always start smartparens mode in js-mode.
 (add-hook 'js-mode-hook #'smartparens-mode)
