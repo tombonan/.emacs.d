@@ -46,12 +46,16 @@
     (linum-mode -1)))
 
 (defun tom/copy-current-file-path ()
-  "Add current file path to kill ring. Limits the filename to project root if possible."
+  "Put the current file name on the clipboard"
   (interactive)
-  (let ((filename (buffer-file-name)))
-    (kill-new (if eproject-mode
-                  (s-chop-prefix (eproject-root) filename)
-                filename))))
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (with-temp-buffer
+        (insert filename)
+        (clipboard-kill-region (point-min) (point-max)))
+      (message filename))))
 
 (provide 'file-defuns)
 
