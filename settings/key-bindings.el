@@ -41,7 +41,7 @@
 
 ;; Move windows, even in org-mode
 (global-set-key (kbd "C-x o") 'windmove-right) ;; o for other
-(global-set-key (kbd "C-x p") 'windmove-left) ;; p for previous
+(global-set-key (kbd "C-x i") 'windmove-left) ;; p for previous
 (global-set-key (kbd "<s-right>") 'windmove-right)
 (global-set-key (kbd "<s-left>") 'windmove-left)
 (global-set-key (kbd "<s-up>") 'windmove-up)
