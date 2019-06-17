@@ -1,4 +1,5 @@
 (require 'package)
+
 ;; Any add to list for package-archives (to add marmalade or melpa) goes here
 (setq package-archives
       '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
