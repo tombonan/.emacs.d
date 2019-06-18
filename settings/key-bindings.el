@@ -36,6 +36,9 @@
 (global-set-key (kbd "C-S-d") 'tom/move-line-down)
 (global-set-key (kbd "C-S-u") 'tom/move-line-up)
 
+;; Join line below to current line
+(global-set-key (kbd "M-j")(lambda ()(interactive)(join-line -1))) 
+
 ;; New lines even if the cursor is midsentence
 (global-set-key (kbd "C-RET") 'tom/open-line-below)
 (global-set-key (kbd "C-S-RET") 'tom/open-line-above)
