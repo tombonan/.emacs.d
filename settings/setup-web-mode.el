@@ -11,4 +11,11 @@
 
 (setq web-mode-enable-current-element-highlight t)
 
+;; Change indentation from 4 spaces to 2
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
 (provide 'setup-web-mode)
