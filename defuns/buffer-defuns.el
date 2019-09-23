@@ -31,4 +31,9 @@
           (delq (current-buffer) 
                 (remove-if-not 'buffer-file-name (buffer-list)))))
 
+(defun tom/goto-percent (percent)
+  "Go to PERCENT of buffer."
+  (interactive "nGoto percent: ")
+  (goto-char (/ (* percent (point-max)) 100)))
+
 (provide 'buffer-defuns)
