@@ -5,12 +5,17 @@
       '(
 	View-leave
 	avy-goto-char
+	coffee-dedent-line-backspace
 	complete-symbol
 	electric-newline-and-maybe-indent
+	forward-sentence
 	helm-ff-RET
 	helm-keyboard-quit
 	keyboard-escape-quit
+	kill-region
 	markdown-outdent-or-delete
+	org-end-of-line
+	org-yank
 	sgml-delete-tag
 	sgml-slash
 	sp-remove-active-pair-overlay
@@ -19,6 +24,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+	abort-recursive-edit
 	emmet-expand-line
 	god-mode-all
 	god-mode-self-insert
@@ -27,8 +33,10 @@
 	indent-for-tab-command
 	mac-mwheel-scroll
 	mark-whole-buffer
+	org-beginning-of-line
 	org-return
 	org-self-insert-command
 	rjsx-electric-gt
 	rjsx-electric-lt
+	toggle-input-method
 	))

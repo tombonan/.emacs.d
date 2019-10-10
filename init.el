@@ -76,3 +76,4 @@
 ;; Custom set variables
 (setq custom-file "~/.emacs.d/settings/custom.el")
 (load custom-file)
+(put 'downcase-region 'disabled nil)
