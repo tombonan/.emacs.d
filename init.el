@@ -36,6 +36,9 @@
 ;; Set documents to default working directory
 (setq default-directory "~/Documents/")
 
+;; Delete whitespace upon saving
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
 ;; Load custom directories
 (mapc 'load (file-expand-wildcards "~/.emacs.d/defuns/*.el")) ;; emacs functions directory
 (mapc 'load (file-expand-wildcards "~/.emacs.d/settings/*.el")) ;; emacs package settings directory

@@ -29,7 +29,6 @@
     "Kill all buffers except for current"
     (interactive)
     (call-interactively 'tom/kill-star-buffers)
-    (call-interactively 'tramp-cleanup-all-connections)
     (mapc 'kill-buffer 
           (delq (current-buffer) 
                 (remove-if-not 'buffer-file-name (buffer-list)))))
