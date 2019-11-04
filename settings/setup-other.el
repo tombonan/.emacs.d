@@ -10,7 +10,7 @@
 
 (global-set-key (kbd "C-c s") 'tom/spectra-creds)
 
-(provide 'setup-spectra)
-
+;; restclient-mode setup
+(add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
 (provide 'setup-other)
