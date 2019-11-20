@@ -13,4 +13,10 @@
 ;; restclient-mode setup
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
+;; perl-mode setup
+(defun perl-space-hook ()
+    (setq indent-tabs-mode nil)
+    (setq tab-width 3))
+ (add-hook 'perl-mode-hook 'perl-space-hook)
+
 (provide 'setup-other)
