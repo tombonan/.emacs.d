@@ -29,9 +29,9 @@
     "Kill all buffers except for current"
     (interactive)
     (call-interactively 'tom/kill-star-buffers)
-    (mapc 'kill-buffer 
-          (delq (current-buffer) 
-                (remove-if-not 'buffer-file-name (buffer-list)))))
+    (mapc 'kill-buffer
+	  (delq (current-buffer)
+		(remove-if-not 'buffer-file-name (buffer-list)))))
 
 (defun tom/goto-percent (percent)
   "Go to PERCENT of buffer."
@@ -50,18 +50,22 @@
   "Kill all star buffers except those in `kill-star-buffers-except'"
   (interactive)
   (mapc (lambda (buf)
-          (let ((buf-name (buffer-name buf)))
-            (when (and
-                   ;; if a buffer's name is enclosed by * with optional leading
-                   ;; space characters
-                   (string-match-p "\\` *\\*.*\\*\\'" buf-name)
-                   ;; and the buffer is not associated with a process
-                   ;; (suggested by "sanityinc")
-                   (null (get-buffer-process buf))
-                   ;; and the buffer's name is not in `kill-star-buffers-except'
-                   (notany (lambda (except) (string-match-p except buf-name))
-                           kill-star-buffers-except))
-              (kill-buffer buf))))
-        (buffer-list)))
+	  (let ((buf-name (buffer-name buf)))
+	    (when (and
+		   ;; if a buffer's name is enclosed by * with optional leading
+		   ;; space characters
+		   (string-match-p "\\` *\\*.*\\*\\'" buf-name)
+		   ;; and the buffer is not associated with a process
+		   ;; (suggested by "sanityinc")
+		   (null (get-buffer-process buf))
+		   ;; and the buffer's name is not in `kill-star-buffers-except'
+		   (notany (lambda (except) (string-match-p except buf-name))
+			   kill-star-buffers-except))
+	      (kill-buffer buf))))
+	(buffer-list)))
+
+(defun tom/rspec-this-file ()
+  (interactive)
+  (compile (concat "cd " (projectile-project-root) " && bundle exec rspec " (buffer-file-name))))
 
 (provide 'buffer-defuns)

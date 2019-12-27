@@ -37,7 +37,7 @@
 (global-set-key (kbd "C-S-u") 'tom/move-line-up)
 
 ;; Join line below to current line
-(global-set-key (kbd "M-j")(lambda ()(interactive)(join-line -1))) 
+(global-set-key (kbd "M-j")(lambda ()(interactive)(join-line -1)))
 
 ;; New lines even if the cursor is midsentence
 (global-set-key (kbd "C-RET") 'tom/open-line-below)
@@ -64,5 +64,8 @@
 ;; Open files or directories
 (global-set-key (kbd "C-c o") 'tom/open-org-default) ;; o for org
 (global-set-key (kbd "C-c e") 'tom/open-emacs-config) ;; e for emacs
+
+;; Ruby Keybindings
+(global-set-key (kbd "C-c r") 'tom/rspec-this-file) ;; r for rspec
 
 (provide 'key-bindings)

@@ -3,12 +3,12 @@
 ;; Any add to list for package-archives (to add marmalade or melpa) goes here
 (setq package-archives
       '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
-        ("MELPA Stable" . "https://stable.melpa.org/packages/")
-        ("MELPA"        . "https://melpa.org/packages/"))
+	("MELPA Stable" . "https://stable.melpa.org/packages/")
+	("MELPA"        . "https://melpa.org/packages/"))
       package-archive-priorities
       '(("MELPA Stable" . 10)
-        ("GNU ELPA"     . 5)
-        ("MELPA"        . 0)))
+	("GNU ELPA"     . 5)
+	("MELPA"        . 0)))
 (package-initialize)
 
 ;; Solarize theme
@@ -26,8 +26,8 @@
 (setq inhibit-startup-message t)
 
 ;; Remap meta key to alt from command
-(setq mac-option-modifier 'meta) 
-(setq mac-command-modifier 'super) 
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'super)
 
 ;; Move backups and autosaves to ~/.saves directory
 (setq backup-directory-alist `(("." . "~/.saves")))
@@ -46,11 +46,11 @@
 ;; Dired Omit . Files
 (add-hook 'dired-load-hook '(lambda () (require 'dired-x))) ; Load Dired X when Dired is loaded.
 (add-hook 'dired-mode-hook
-          (lambda ()
-                 ;; Set dired-x buffer-local variables here.  For example:
-                 (dired-omit-mode 1)
+	  (lambda ()
+		 ;; Set dired-x buffer-local variables here.  For example:
+		 (dired-omit-mode 1)
 		 (dired-hide-details-mode 1)
-                 ))
+		 ))
 
 
 ;; Package requirements
