@@ -2,6 +2,7 @@
 ;; The C-c <SPC> prefix I'm leaving for major-mode-specific keybindings.
 
 (global-set-key (kbd "C-c c") 'avy-goto-char) ;; c for char
+(global-set-key (kbd "C-c c") 'avy-goto-line) ;; f for find
 (global-set-key (kbd "C-c l") 'helm-buffers-list) ;; l for list
 (global-set-key (kbd "C-s") 'helm-swoop) ;; h p for helm project
 
@@ -30,14 +31,13 @@
 
 ;; Comment/uncomment block
 (global-set-key (kbd "C-c d") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-c f") 'Uncomment-region)
 
 ;; Move lines up or down
 (global-set-key (kbd "C-S-d") 'tom/move-line-down)
 (global-set-key (kbd "C-S-u") 'tom/move-line-up)
 
 ;; Join line below to current line
-(global-set-key (kbd "M-j")(lambda ()(interactive)(join-line -1)))
+(global-set-key (kbd "C-c j")(lambda ()(interactive)(join-line -1)))
 
 ;; New lines even if the cursor is midsentence
 (global-set-key (kbd "C-RET") 'tom/open-line-below)
