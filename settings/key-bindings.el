@@ -2,7 +2,7 @@
 ;; The C-c <SPC> prefix I'm leaving for major-mode-specific keybindings.
 
 (global-set-key (kbd "C-c c") 'avy-goto-char) ;; c for char
-(global-set-key (kbd "C-c c") 'avy-goto-line) ;; f for find
+(global-set-key (kbd "C-c f") 'avy-goto-line) ;; f for find
 (global-set-key (kbd "C-c l") 'helm-buffers-list) ;; l for list
 (global-set-key (kbd "C-s") 'helm-swoop) ;; h p for helm project
 
