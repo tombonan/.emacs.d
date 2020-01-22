@@ -35,21 +35,26 @@
     (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
       (overlay-put ov 'window (selected-window))
       (overlay-put ov 'face
-                   (let ((bg-color (face-background 'default nil)))
-                     `(:background ,bg-color :foreground ,bg-color)))
+		   (let ((bg-color (face-background 'default nil)))
+		     `(:background ,bg-color :foreground ,bg-color)))
       (setq-local cursor-type nil))))
 
 
 (add-hook 'helm-minibuffer-set-up-hook
-          'spacemacs//helm-hide-minibuffer-maybe)
+	  'spacemacs//helm-hide-minibuffer-maybe)
 
 ;; Make buffer list full screen
 ;; https://www.reddit.com/r/emacs/comments/345vtl/make_helm_window_at_the_bottom_without_using_any/
 (add-to-list 'display-buffer-alist
-                    `(,(rx bos "*helm" (* not-newline) "*" eos)
-                         (display-buffer-in-side-window)
-                         (inhibit-same-window . t)
-                         (window-height . 0.4)))
+		    `(,(rx bos "*helm" (* not-newline) "*" eos)
+			 (display-buffer-in-side-window)
+			 (inhibit-same-window . t)
+			 (window-height . 0.4)))
+
+;; Disable helm completion for dired mode
+;; https://emacs.stackexchange.com/questions/17077/how-can-i-skip-helm-ido-when-i-want-to-open-dired
+(add-to-list 'helm-completing-read-handlers-alist
+	     '(dired . nil))
 
 (setq helm-autoresize-max-height 0)
 (setq helm-autoresize-min-height 20)

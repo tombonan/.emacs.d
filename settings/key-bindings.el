@@ -4,6 +4,7 @@
 (global-set-key (kbd "C-c c") 'avy-goto-char) ;; c for char
 (global-set-key (kbd "C-c f") 'avy-goto-line) ;; f for find
 (global-set-key (kbd "C-c l") 'helm-buffers-list) ;; l for list
+(global-set-key (kbd "C-c x") 'tom/up-directory)
 (global-set-key (kbd "C-s") 'helm-swoop) ;; h p for helm project
 
 (global-set-key (kbd "C-c g") 'magit-status) ;; g for git
