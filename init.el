@@ -43,16 +43,6 @@
 (mapc 'load (file-expand-wildcards "~/.emacs.d/defuns/*.el")) ;; emacs functions directory
 (mapc 'load (file-expand-wildcards "~/.emacs.d/settings/*.el")) ;; emacs package settings directory
 
-;; Dired Omit . Files
-(add-hook 'dired-load-hook '(lambda () (require 'dired-x))) ; Load Dired X when Dired is loaded.
-(add-hook 'dired-mode-hook
-	  (lambda ()
-		 ;; Set dired-x buffer-local variables here.  For example:
-		 (dired-omit-mode 1)
-		 (dired-hide-details-mode 1)
-		 ))
-
-
 ;; Package requirements
 (require 'neotree)
 (require 'undo-tree)

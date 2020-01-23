@@ -51,16 +51,16 @@
 			 (inhibit-same-window . t)
 			 (window-height . 0.4)))
 
-;; Disable helm completion for dired mode
-;; https://emacs.stackexchange.com/questions/17077/how-can-i-skip-helm-ido-when-i-want-to-open-dired
-(add-to-list 'helm-completing-read-handlers-alist
-	     '(dired . nil))
-
 (setq helm-autoresize-max-height 0)
 (setq helm-autoresize-min-height 20)
 (helm-autoresize-mode 1)
 
 (helm-mode 1)
+
+;; Disable helm completion for dired mode
+;; https://emacs.stackexchange.com/questions/17077/how-can-i-skip-helm-ido-when-i-want-to-open-dired
+(add-to-list 'helm-completing-read-handlers-alist
+	     '(dired . nil))
 
 
 (provide 'setup-helm)
