@@ -53,6 +53,7 @@
 (require 'rjsx-mode)
 (require 'smartparens-config)
 (require 'p4)
+(require 'docker-tramp)
 
 ;; Always start smartparens mode in js-mode.
 (add-hook 'js-mode-hook #'smartparens-mode)
@@ -70,3 +71,5 @@
 (setq custom-file "~/.emacs.d/settings/custom.el")
 (load custom-file)
 (put 'downcase-region 'disabled nil)
+
+(setq require-final-newline t)

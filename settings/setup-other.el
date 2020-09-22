@@ -17,6 +17,10 @@
 (defun perl-space-hook ()
     (setq indent-tabs-mode nil)
     (setq tab-width 3))
- (add-hook 'perl-mode-hook 'perl-space-hook)
+(add-hook 'perl-mode-hook 'perl-space-hook)
+
+(require 'yaml-mode)
+    (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(put 'upcase-region 'disabled nil)
 
 (provide 'setup-other)
