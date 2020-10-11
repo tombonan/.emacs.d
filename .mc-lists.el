@@ -13,6 +13,7 @@
 	helm-keyboard-quit
 	keyboard-escape-quit
 	kill-region
+	kill-ring-save
 	markdown-outdent-or-delete
 	org-end-of-line
 	org-yank
@@ -20,6 +21,9 @@
 	sgml-slash
 	sp-remove-active-pair-overlay
 	tom/move-line-up
+	yaml-electric-backspace
+	yaml-electric-dash-and-dot
+	downcase-region
 	))
 
 (setq mc/cmds-to-run-once
@@ -30,6 +34,7 @@
 	god-mode-self-insert
 	helm-M-x
 	helm-maybe-exit-minibuffer
+	helm-swoop
 	indent-for-tab-command
 	mac-mwheel-scroll
 	mark-whole-buffer
