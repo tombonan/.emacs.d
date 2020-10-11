@@ -54,12 +54,7 @@
 (require 'smartparens-config)
 (require 'p4)
 (require 'docker-tramp)
-
-;; Always start smartparens mode in js-mode.
-(add-hook 'js-mode-hook #'smartparens-mode)
-
-;; rsjx-mode for all js files
-(add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . rjsx-mode))
+(require 'expand-region)
 
 ;; Custom package hooks and initialization
 (global-undo-tree-mode)
@@ -73,3 +68,5 @@
 (put 'downcase-region 'disabled nil)
 
 (setq require-final-newline t)
+
+(setq nrepl-use-ssh-fallback-for-remote-hosts t)
