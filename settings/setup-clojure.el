@@ -1,32 +1,15 @@
 (require 'clojure-mode)
 (require 'clojure-mode-extra-font-locking)
-
-(defadvice clojure-test-run-tests (before save-first activate)
-  (save-buffer))
-
-(defadvice nrepl-load-current-buffer (before save-first activate)
-  (save-buffer))
-
-(require 'clj-refactor)
+(require 'cider)
 
 (setq cljr-favor-prefix-notation nil)
 (setq cljr-favor-private-functions nil)
 
-(cljr-add-keybindings-with-modifier "C-s-")
-(define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)
-
-(defun clj-goto-toplevel ()
+(defun tom/clj-goto-toplevel ()
   (interactive)
   (cljr--goto-toplevel))
 
-(define-key clojure-mode-map (kbd "C-S-M-u") 'clj-goto-toplevel)
-
-(define-key clojure-mode-map (kbd "C-:") 'hippie-expand-lines)
-(define-key clojure-mode-map (kbd "C-\"") 'clojure-toggle-keyword-string)
-
-(define-key clojure-mode-map [remap paredit-forward] 'clojure-forward-logical-sexp)
-(define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
-
+(define-key clojure-mode-map (kbd "C-S-M-u") 'tom/clj-goto-toplevel)
 
 (defun clj-duplicate-top-level-form ()
   (interactive)
@@ -37,23 +20,7 @@
 
 (define-key clojure-mode-map (kbd "M-s-d") 'clj-duplicate-top-level-form)
 
-(add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
-
-;; (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
-;; (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
-
 (define-key clojure-mode-map (kbd "s-j") 'clj-jump-to-other-file)
-
-(define-key clojure-mode-map (kbd "C-.") 'clj-hippie-expand-no-case-fold)
-
-(defun clj-hippie-expand-no-case-fold ()
-  (interactive)
-  (let ((old-syntax (char-to-string (char-syntax ?/))))
-    (modify-syntax-entry ?/ " ")
-    (hippie-expand-no-case-fold)
-    (modify-syntax-entry ?/ old-syntax)))
-
-(require 'cider)
 
 ;; don't kill the REPL when printing large data structures
 (setq cider-print-options
@@ -70,6 +37,9 @@
 (define-key cider-mode-map (kbd "C-c C-q") 'nrepl-close)
 (define-key cider-mode-map (kbd "C-c C-Q") 'cider-quit)
 
+;; Allow repl on remote hosts
+(setq nrepl-use-ssh-fallback-for-remote-hosts t)
+
 (defun cider-find-and-clear-repl-buffer ()
   (interactive)
   (cider-find-and-clear-repl-output t))
@@ -82,7 +52,6 @@
 (setq cljr-cljc-clojure-test-declaration cljr-clojure-test-declaration)
 
 ;; indent [quiescent.dom :as d] specially
-
 (define-clojure-indent
   (forcat 1)
   (d/a 1)
@@ -152,7 +121,6 @@
 (setq cljr-warn-on-eval nil)
 
 ;; Use figwheel for cljs repl
-
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
 ;; Indent and highlight more commands
@@ -182,89 +150,7 @@
 ;; Enable eldoc in Clojure buffers
 (add-hook 'cider-mode-hook #'eldoc-mode)
 
-;; Some expectations features
-
-(defun my-toggle-expect-focused ()
-  (interactive)
-  (save-excursion
-    (search-backward "(expect" (cljr--point-after 'cljr--goto-toplevel))
-    (forward-word)
-    (if (looking-at "-focused")
-	(paredit-forward-kill-word)
-      (insert "-focused"))))
-
-(defun my-remove-all-focused ()
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (search-forward "(expect-focused" nil t)
-      (delete-char -8))))
-
-(define-key clj-refactor-map
-  (cljr--key-pairs-with-modifier "C-s-" "xf") 'my-toggle-expect-focused)
-
-(define-key clj-refactor-map
-  (cljr--key-pairs-with-modifier "C-s-" "xr") 'my-remove-all-focused)
-
-;; Focus tests
-
-(defun my-toggle-focused-test ()
-  (interactive)
-  (save-excursion
-    (search-backward "(deftest " (cljr--point-after 'cljr--goto-toplevel))
-    (forward-word)
-    (if (looking-at " ^:test-refresh/focus")
-	(kill-sexp)
-      (insert " ^:test-refresh/focus"))))
-
-(defun my-blur-all-tests ()
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (search-forward " ^:test-refresh/focus" nil t)
-      (delete-region (match-beginning 0) (match-end 0)))))
-
-(define-key clj-refactor-map
-  (cljr--key-pairs-with-modifier "C-s-" "ft") 'my-toggle-focused-test)
-
-(define-key clj-refactor-map
-  (cljr--key-pairs-with-modifier "C-s-" "bt") 'my-blur-all-tests)
-
-;; Cycle between () {} []
-
-(defun live-delete-and-extract-sexp ()
-  "Delete the sexp and return it."
-  (interactive)
-  (let* ((begin (point)))
-    (forward-sexp)
-    (let* ((result (buffer-substring-no-properties begin (point))))
-      (delete-region begin (point))
-      result)))
-
-(defun live-cycle-clj-coll ()
-  "convert the coll at (point) from (x) -> {x} -> [x] -> (x) recur"
-  (interactive)
-  (let* ((original-point (point)))
-    (while (and (> (point) 1)
-		(not (equal "(" (buffer-substring-no-properties (point) (+ 1 (point)))))
-		(not (equal "{" (buffer-substring-no-properties (point) (+ 1 (point)))))
-		(not (equal "[" (buffer-substring-no-properties (point) (+ 1 (point))))))
-      (backward-char))
-    (cond
-     ((equal "(" (buffer-substring-no-properties (point) (+ 1 (point))))
-      (insert "{" (substring (live-delete-and-extract-sexp) 1 -1) "}"))
-     ((equal "{" (buffer-substring-no-properties (point) (+ 1 (point))))
-      (insert "[" (substring (live-delete-and-extract-sexp) 1 -1) "]"))
-     ((equal "[" (buffer-substring-no-properties (point) (+ 1 (point))))
-      (insert "(" (substring (live-delete-and-extract-sexp) 1 -1) ")"))
-     ((equal 1 (point))
-      (message "beginning of file reached, this was probably a mistake.")))
-    (goto-char original-point)))
-
-(define-key clojure-mode-map (kbd "C-`") 'live-cycle-clj-coll)
-
 ;; Warn about missing nREPL instead of doing stupid things
-
 (defun nrepl-warn-when-not-connected ()
   (interactive)
   (message "Oops! You're not connected to an nREPL server. Please run M-x cider or M-x cider-jack-in to connect."))
@@ -291,11 +177,9 @@
 	("json" . "cheshire.core")))
 
 ;; refer all from expectations
-
 (setq cljr-expectations-test-declaration "[expectations :refer :all]")
 
 ;; Add requires to blank devcards files
-
 (defun cljr--find-source-ns-of-devcard-ns (test-ns test-file)
   (let* ((ns-chunks (split-string test-ns "[.]" t))
 	 (test-name (car (last ns-chunks)))

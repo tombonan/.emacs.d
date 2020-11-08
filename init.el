@@ -68,5 +68,3 @@
 (put 'downcase-region 'disabled nil)
 
 (setq require-final-newline t)
-
-(setq nrepl-use-ssh-fallback-for-remote-hosts t)

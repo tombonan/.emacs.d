@@ -7,6 +7,7 @@
 	avy-goto-char
 	coffee-dedent-line-backspace
 	complete-symbol
+	downcase-region
 	electric-newline-and-maybe-indent
 	forward-sentence
 	helm-ff-RET
@@ -23,7 +24,6 @@
 	tom/move-line-up
 	yaml-electric-backspace
 	yaml-electric-dash-and-dot
-	downcase-region
 	))
 
 (setq mc/cmds-to-run-once
@@ -36,7 +36,9 @@
 	helm-maybe-exit-minibuffer
 	helm-swoop
 	indent-for-tab-command
+	mac-mouse-buffer-menu
 	mac-mwheel-scroll
+	mac-previous-tab-or-toggle-tab-bar
 	mark-whole-buffer
 	org-beginning-of-line
 	org-return
