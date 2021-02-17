@@ -10,7 +10,7 @@
  '(magit-dispatch-arguments nil)
  '(package-selected-packages
    (quote
-    (expand-region typescript-mode helm-tramp clj-refactor clojure-mode-extra-font-locking cider go-mode groovy-mode yaml-mode docker-tramp dockerfile-mode enh-ruby-mode coffee-mode helm-swoop markdown-mode org-bullets helm-flyspell fireplace smartparens rjsx-mode undo-tree multiple-cursors magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
+    (flycheck arduino-mode expand-region typescript-mode helm-tramp clj-refactor clojure-mode-extra-font-locking cider go-mode groovy-mode yaml-mode docker-tramp dockerfile-mode enh-ruby-mode coffee-mode helm-swoop markdown-mode org-bullets helm-flyspell fireplace smartparens rjsx-mode undo-tree multiple-cursors magit restclient neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

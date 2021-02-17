@@ -35,10 +35,4 @@
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "DONE")))
 
-;; Prompt for note when closing todo
-;; (setq org-log-done 'note)
-
-;; Set path to the reading list org file
-(setq org-books-file "~/Dropbox/org/book-list.org")
-
 (provide 'setup-org)
