@@ -67,4 +67,7 @@
 (load custom-file)
 (put 'downcase-region 'disabled nil)
 
+(setq flycheck-emacs-lisp-load-path 'inherit)
+(add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
+
 (setq require-final-newline t)
