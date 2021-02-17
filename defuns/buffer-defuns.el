@@ -65,7 +65,13 @@
 	(buffer-list)))
 
 (defun tom/rspec-this-file ()
+  "Run the current file in rspec"
   (interactive)
   (compile (concat "cd " (projectile-project-root) " && bundle exec rspec " (buffer-file-name))))
+
+(defun tom/unittest-this-file ()
+  "Run the current file in unittest using a virtual environment venv/"
+  (interactive)
+  (compile (concat "cd " (projectile-project-root) " && venv/bin/python -m unittest " (buffer-file-name))))
 
 (provide 'buffer-defuns)
