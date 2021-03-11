@@ -3,12 +3,12 @@
 ;; Any add to list for package-archives (to add marmalade or melpa) goes here
 (setq package-archives
       '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
-	("MELPA Stable" . "https://stable.melpa.org/packages/")
-	("MELPA"        . "https://melpa.org/packages/"))
+        ("MELPA Stable" . "https://stable.melpa.org/packages/")
+        ("MELPA"        . "https://melpa.org/packages/"))
       package-archive-priorities
       '(("MELPA Stable" . 10)
-	("GNU ELPA"     . 5)
-	("MELPA"        . 0)))
+        ("GNU ELPA"     . 5)
+        ("MELPA"        . 0)))
 (package-initialize)
 
 ;; Solarize theme
@@ -70,4 +70,8 @@
 (setq flycheck-emacs-lisp-load-path 'inherit)
 (add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
 
+;; Require newline at end of file
 (setq require-final-newline t)
+
+;; Use spaces instead of tabs
+(setq-default indent-tabs-mode nil)

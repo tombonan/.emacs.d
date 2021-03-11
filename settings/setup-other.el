@@ -28,8 +28,8 @@
 (add-hook 'js-mode-hook #'smartparens-mode)
 
 ;; rsjx-mode for all js files
-(setq-default typescript-indent-level 4)
-(setq js-indent-level 4)
+(setq-default typescript-indent-level 2)
+(setq js-indent-level 2)
 (add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . rjsx-mode))
