@@ -34,4 +34,7 @@
 (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . rjsx-mode))
 
+;; JSON mode
+(add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
+
 (provide 'setup-other)
