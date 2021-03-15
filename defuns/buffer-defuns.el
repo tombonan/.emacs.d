@@ -26,12 +26,12 @@
   (call-interactively 'windmove-down))
 
 (defun tom/kill-other-buffers ()
-    "Kill all buffers except for current"
-    (interactive)
-    (call-interactively 'tom/kill-star-buffers)
-    (mapc 'kill-buffer
-	  (delq (current-buffer)
-		(remove-if-not 'buffer-file-name (buffer-list)))))
+  "Kill all buffers except for current"
+  (interactive)
+  (call-interactively 'tom/kill-star-buffers)
+  (mapc 'kill-buffer
+        (delq (current-buffer)
+              (remove-if-not 'buffer-file-name (buffer-list)))))
 
 (defun tom/goto-percent (percent)
   "Go to PERCENT of buffer."
@@ -50,28 +50,38 @@
   "Kill all star buffers except those in `kill-star-buffers-except'"
   (interactive)
   (mapc (lambda (buf)
-	  (let ((buf-name (buffer-name buf)))
-	    (when (and
-		   ;; if a buffer's name is enclosed by * with optional leading
-		   ;; space characters
-		   (string-match-p "\\` *\\*.*\\*\\'" buf-name)
-		   ;; and the buffer is not associated with a process
-		   ;; (suggested by "sanityinc")
-		   (null (get-buffer-process buf))
-		   ;; and the buffer's name is not in `kill-star-buffers-except'
-		   (notany (lambda (except) (string-match-p except buf-name))
-			   kill-star-buffers-except))
-	      (kill-buffer buf))))
-	(buffer-list)))
+          (let ((buf-name (buffer-name buf)))
+            (when (and
+                   ;; if a buffer's name is enclosed by * with optional leading
+                   ;; space characters
+                   (string-match-p "\\` *\\*.*\\*\\'" buf-name)
+                   ;; and the buffer is not associated with a process
+                   ;; (suggested by "sanityinc")
+                   (null (get-buffer-process buf))
+                   ;; and the buffer's name is not in `kill-star-buffers-except'
+                   (notany (lambda (except) (string-match-p except buf-name))
+                           kill-star-buffers-except))
+              (kill-buffer buf))))
+        (buffer-list)))
 
-(defun tom/rspec-this-file ()
-  "Run the current file in rspec"
-  (interactive)
-  (compile (concat "cd " (projectile-project-root) " && bundle exec rspec " (buffer-file-name))))
+;; Running tests in buffer
+(defun tom/test-this-file (test-cmd)
+  "Navigate to the project root and run the current file with the specified test command"
+  (compile (concat "cd " (projectile-project-root) " && " test-cmd " " (buffer-file-name))))
 
 (defun tom/unittest-this-file ()
   "Run the current file in unittest using a virtual environment venv/"
   (interactive)
-  (compile (concat "cd " (projectile-project-root) " && venv/bin/python -m unittest " (buffer-file-name))))
+  (tom/test-this-file "venv/bin/python -m unittest"))
+
+(defun tom/rspec-this-file ()
+  "Run the current file in rspec"
+  (interactive)
+  (tom/test-this-file "bundle exec rspec"))
+
+(defun tom/jest-this-file ()
+  "Run the current file in jest"
+  (interactive)
+  (tom/test-this-file "./node_modules/.bin/jest"))
 
 (provide 'buffer-defuns)
