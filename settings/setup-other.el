@@ -31,10 +31,17 @@
 (setq-default typescript-indent-level 2)
 (setq js-indent-level 2)
 (add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . rjsx-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
 
 ;; JSON mode
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
+
+;; Arduino mode
+(add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
+
+;; misc
+(put 'downcase-region 'disabled nil)
+(setq flycheck-emacs-lisp-load-path 'inherit)
 
 (provide 'setup-other)

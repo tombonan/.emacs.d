@@ -65,10 +65,6 @@
 ;; Custom set variables
 (setq custom-file "~/.emacs.d/settings/custom.el")
 (load custom-file)
-(put 'downcase-region 'disabled nil)
-
-(setq flycheck-emacs-lisp-load-path 'inherit)
-(add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
 
 ;; Require newline at end of file
 (setq require-final-newline t)
