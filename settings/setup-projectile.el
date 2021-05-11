@@ -1,11 +1,32 @@
 ;; Projectile Mode Configuration
 
+(require 'projectile)
+
 (projectile-mode +1)
+
+(setq projectile-require-project-root nil)
+(setq projectile-enable-caching t)
+(setq projectile-globally-ignored-directories
+      (append '(
+        ".git"
+        "node_modules"
+        "venv"
+        )
+          projectile-globally-ignored-directories))
+(setq projectile-globally-ignored-files
+      (append '(
+        ".DS_Store"
+        "*.gz"
+        "*.pyc"
+        "*.jar"
+        "*.tar.gz"
+        "*.tgz"
+        "*.zip"
+        )
+          projectile-globally-ignored-files))
+
+(projectile-global-mode)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
-;; Ignore node_modules
-(add-to-list 'projectile-globally-ignored-directories "node_modules")
-
 (setq projectile-mode-line "Projectile")
 
 ;; Sort files by recently acitve buffers, then recently opened files
