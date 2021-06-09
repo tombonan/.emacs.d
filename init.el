@@ -52,7 +52,6 @@
 (require 'emmet-mode)
 (require 'rjsx-mode)
 (require 'smartparens-config)
-(require 'p4)
 (require 'docker-tramp)
 (require 'expand-region)
 
