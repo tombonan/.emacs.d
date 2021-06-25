@@ -17,19 +17,17 @@
 
 ;; Use org-bullets instead of asterisks
 (require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (setq org-startup-indented t
-      org-bullets-bullet-list '(">") ;; no bullets, needs org-bullets package
-      org-ellipsis " v " ;; folding symbol
+      org-ellipsis " ▾ " ;; folding symbol
       org-pretty-entities t
       org-hide-emphasis-markers t) ;; Hide emphasis markers
 
 (custom-theme-set-faces
  'user
- '(variable-pitch ((t (:family "Source Sans Pro" :weight regular)))))
+ '(variable-pitch ((t (:family "Roboto Mono Medium" :weight regular)))))
 (add-hook 'org-mode-hook 'variable-pitch-mode)
-
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; Add in progress to TODO sequence
 (setq org-todo-keywords
