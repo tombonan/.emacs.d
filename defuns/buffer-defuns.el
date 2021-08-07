@@ -65,9 +65,13 @@
         (buffer-list)))
 
 ;; Running tests in buffer
-(defun tom/test-this-file (test-cmd)
-  "Navigate to the project root and run the current file with the specified test command"
-  (compile (concat "cd " (projectile-project-root) " && " test-cmd " " (buffer-file-name))))
+(defun tom/test-this-file (test-cmd &optional line-num)
+  "Navigate to the project root and run the current file with the specified test command.
+   If an optional line number param is passed, then the test commmand is run at that section"
+  (let ((shell-cmd (concat "cd " (projectile-project-root) " && " test-cmd " " (buffer-file-name))))
+    (if line-num
+        (compile (concat shell-cmd ":" line-num))
+      (compile shell-cmd))))
 
 (defun tom/unittest-this-file ()
   "Run the current file in unittest using a virtual environment venv/"
@@ -83,5 +87,10 @@
   "Run the current file in jest"
   (interactive)
   (tom/test-this-file "./node_modules/.bin/jest"))
+
+(defun tom/rspec-this-line ()
+  "Run an rspec block at the current cursor position"
+  (interactive)
+  (tom/test-this-file "bundle exec rspec" (format-mode-line "%l")))
 
 (provide 'buffer-defuns)
