@@ -45,7 +45,9 @@
         org-beginning-of-line
         org-return
         org-self-insert-command
+        revert-buffer
         rjsx-electric-gt
         rjsx-electric-lt
         toggle-input-method
+        wdired-finish-edit
         ))
