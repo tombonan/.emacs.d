@@ -1,0 +1,42 @@
+(undo-tree-save-format-version . 1)
+"6192b20f2c224aabc742b0d7b8e8258e7d459cf3"
+[nil nil nil nil (25599 35152 373275 0) 0 nil]
+([nil nil ((972 . 1346) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(mode-line-buffer-id ((t (:foreground \"cornsilk\" :weight bold))))
+ '(variable-pitch ((t (:family \"Source Sans Pro\" :weight regular)))))" 0 374 (fontified nil)) . -972) (969 . 971) (#("
+" 0 1 (fontified nil)) . -969) (501 . 970) (#(" " 0 1 (fontified nil)) . 501) (438 . 502) (#("
+" 0 1 (fontified nil)) . -438) (290 . 439) (#(" " 0 1 (fontified nil)) . 290) (1 . 291) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(coffee-tab-width 2)
+ '(custom-safe-themes
+   '(\"d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879\" \"944e706816bc594367bc16a745b746a38aecc55b9ed5b5209e05289df22a5c52\" default))
+ '(magit-dispatch-arguments nil)
+ '(package-selected-packages
+   '(terraform-mode restclient magit json-mode flycheck arduino-mode expand-region typescript-mode helm-tramp clj-refactor clojure-mode-extra-font-locking cider go-mode groovy-mode yaml-mode docker-tramp dockerfile-mode enh-ruby-mode coffee-mode helm-swoop markdown-mode org-bullets helm-flyspell fireplace smartparens rjsx-mode undo-tree multiple-cursors neotree direx emmet-mode helm-ag helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb)))" 0 978 (fontified nil)) . -1) (t 25599 33256 577247 635000)) nil (25599 35152 373269 0) 0 nil])
+([nil current ((980 . 1354) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(mode-line-buffer-id ((t (:foreground \"cornsilk\" :weight bold))))
+ '(variable-pitch ((t (:family \"Source Sans Pro\" :weight regular)))))" 0 374 (fontified nil)) . -980) (977 . 979) (#("
+" 0 1 (fontified nil)) . -977) (501 . 978) (#(" " 0 1 (fontified nil)) . 501) (438 . 502) (#("
+" 0 1 (fontified nil)) . -438) (290 . 439) (#(" " 0 1 (fontified nil)) . 290) (1 . 291) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(coffee-tab-width 2)
+ '(custom-safe-themes
+   '(\"d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879\" \"944e706816bc594367bc16a745b746a38aecc55b9ed5b5209e05289df22a5c52\" default))
+ '(magit-dispatch-arguments nil)
+ '(package-selected-packages
+   '(terraform-mode restclient magit json-mode flycheck arduino-mode expand-region typescript-mode helm-tramp clj-refactor clojure-mode-extra-font-locking cider go-mode groovy-mode yaml-mode docker-tramp dockerfile-mode enh-ruby-mode coffee-mode helm-swoop markdown-mode org-bullets helm-flyspell fireplace smartparens rjsx-mode undo-tree multiple-cursors neotree direx emmet-mode helm-projectile avy web-mode projectile-rails solarized-theme god-mode helm helm-ebdb)))" 0 970 (fontified nil)) . -1) (t 25599 35152 375754 73000)) nil (25599 35166 103915 0) 0 nil])
+nil
