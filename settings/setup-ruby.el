@@ -15,6 +15,9 @@
 (add-to-list 'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
 (add-to-list 'auto-mode-alist '("\\.coffee.erb\\'" . coffee-mode))
 
+;; Custom ruby-mode hooks for config files
+(add-to-list 'auto-mode-alist '("\\.pryrc\\'" . ruby-mode))
+
 (setq ruby-insert-encoding-magic-comment nil)
 ;; (setq enh-ruby-add-encoding-comment-on-save nil)
 
