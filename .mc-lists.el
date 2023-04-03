@@ -35,6 +35,7 @@
         god-mode-all
         god-mode-self-insert
         helm-M-x
+        helm-confirm-and-exit-minibuffer
         helm-maybe-exit-minibuffer
         helm-swoop
         indent-for-tab-command
