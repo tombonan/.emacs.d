@@ -57,5 +57,13 @@
         (clipboard-kill-region (point-min) (point-max)))
       (message filename))))
 
-(provide 'file-defuns)
+(defun tom/copy-line-number-and-file-path ()
+  "Copy the current file path and line number to the clipboard."
+  (interactive)
+  (let ((file-path (buffer-file-name)))
+    (when file-path
+      (let ((line-number (line-number-at-pos)))
+        (kill-new (format "%s:%d" file-path line-number))
+        (message "%s:%d" file-path line-number)))))
 
+(provide 'file-defuns)
