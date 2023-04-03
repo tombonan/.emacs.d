@@ -1,5 +1,5 @@
 (require 'helm)
-(require 'helm-config)
+;; (require 'helm-config)
 (require 'helm-ag)
 (require 'helm-projectile)
 (helm-projectile-on)
