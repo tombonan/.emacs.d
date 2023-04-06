@@ -1,0 +1,2 @@
+;;; Generated package description from el-mock.el  -*- no-byte-compile: t -*-
+(define-package "el-mock" "1.25.1" "Tiny Mock and Stub framework in Emacs Lisp" 'nil :commit "3069931de75bb6704ecf565af5390009dc4dae00" :authors '(("rubikitch" . "rubikitch@ruby-lang.org")) :maintainer '("Johan Andersson" . "johan.rejeep@gmail.com") :keywords '("lisp" "testing" "unittest") :url "http://github.com/rejeep/el-mock.el")
