@@ -66,4 +66,12 @@
         (kill-new (format "%s:%d" file-path line-number))
         (message "%s:%d" file-path line-number)))))
 
+(defun tom/create-tmp-file ()
+  "Creates a file in the /tmp directory"
+  (interactive)
+  (let* ((input (read-string "Filename: "))
+         (tmp-file (concat "/tmp/" input)))
+    (find-file tmp-file)
+    (message "tmp file created at: %s" tmp-file)))
+
 (provide 'file-defuns)
