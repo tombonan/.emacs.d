@@ -12,10 +12,15 @@
 (setq web-mode-enable-current-element-highlight t)
 
 ;; Change indentation from 4 spaces to 2
-(defun my-web-mode-hook ()
+(defun tom--web-mode-hook ()
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 2)
 )
-(add-hook 'web-mode-hook  'my-web-mode-hook)
+(add-hook 'web-mode-hook  'tom--web-mode-hook)
+
+;; emmet config
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'web-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
 (provide 'setup-web-mode)
