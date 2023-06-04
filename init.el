@@ -25,10 +25,6 @@
 ;; No splash screen
 (setq inhibit-startup-message t)
 
-;; Remap meta key to alt from command
-(setq mac-option-modifier 'meta)
-(setq mac-command-modifier 'super)
-
 ;; Move backups and autosaves to ~/.saves directory
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq auto-save-file-name-transforms `((".*" "~/.saves/" t)))
