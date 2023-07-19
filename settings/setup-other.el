@@ -40,6 +40,9 @@
 ;; Arduino mode
 (add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
 
+;; dotenv mode
+(add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
+
 ;; misc
 (put 'downcase-region 'disabled nil)
 (setq flycheck-emacs-lisp-load-path 'inherit)
