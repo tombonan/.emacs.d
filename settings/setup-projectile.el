@@ -4,6 +4,11 @@
 
 (projectile-mode +1)
 
+(defun tom/projectile-ignore-tmp-projects (project-root)
+  "Return non-nil if PROJECT-ROOT is in the /tmp directory."
+  (string-prefix-p "/private/tmp/" project-root))
+
+(setq projectile-ignored-project-function #'tom/projectile-ignore-tmp-projects)
 (setq projectile-require-project-root nil)
 (setq projectile-enable-caching t)
 (setq projectile-globally-ignored-directories
