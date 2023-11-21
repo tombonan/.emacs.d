@@ -51,7 +51,6 @@
 (require 'emmet-mode)
 (require 'rjsx-mode)
 (require 'smartparens-config)
-(require 'docker-tramp)
 (require 'expand-region)
 
 ;; Custom package hooks and initialization
