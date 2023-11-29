@@ -1,13 +1,19 @@
+.cask
 .DS_Store
+
 /auto-save-list/
 /eshell/
-.projectile
+transient/
+org-persist/
+projects
 recentf
+tramp
+/url/
+
+# Projectile
+.projectile
 projectile-bookmarks.eld
 projectile.cache
-/url/
-tramp
-projects
-transient/
-.cask
+
+# Custom
 emacs-git-open.el
