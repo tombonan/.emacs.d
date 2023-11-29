@@ -10,3 +10,4 @@ tramp
 projects
 transient/
 .cask
+emacs-git-open.el
