@@ -41,9 +41,9 @@
   (interactive)
   (unwind-protect
       (progn
-        (linum-mode 1)
+        (display-line-numbers-mode 1)
         (goto-line (read-number "Goto line: ")))
-    (linum-mode -1)))
+    (display-line-numbers-mode -1)))
 
 (defun tom/copy-current-file-path ()
   "Put the current file name on the clipboard"
