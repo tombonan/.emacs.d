@@ -1,5 +1,17 @@
 (require 'package)
 
+;; Add startup to load-path
+(add-to-list 'load-path (expand-file-name "startup" user-emacs-directory))
+
+;; Start up quickly
+(require 'fast-startup)
+
+;; Set up appearance early
+(require 'appearance)
+
+;; Load defaults
+(require 'defaults)
+
 ;; Any add to list for package-archives (to add marmalade or melpa) goes here
 (setq package-archives
       '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
@@ -10,33 +22,6 @@
         ("GNU ELPA"     . 5)
         ("MELPA"        . 0)))
 (package-initialize)
-
-;; Solarize theme
-(load-theme 'solarized-light t)
-
-;; Turn off mouse interface early in startup to avoid momentary display
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; Maximize Screen on Startup
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; No splash screen
-(setq inhibit-startup-message t)
-
-;; Move backups and autosaves to ~/.saves directory
-(setq backup-directory-alist `(("." . "~/.saves")))
-(setq auto-save-file-name-transforms `((".*" "~/.saves/" t)))
-
-;; Move undo history to ~/.undo directory
-(setq undo-tree-history-directory-alist '(("." . "~/.undo/")))
-
-;; Set documents to default working directory
-(setq default-directory "~/Documents/")
-
-;; Delete whitespace upon saving
-(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; Load custom directories
 (mapc 'load (file-expand-wildcards "~/.emacs.d/defuns/*.el")) ;; emacs functions directory
