@@ -50,7 +50,7 @@
                (project-root (projectile-project-root))
                (relative-path (file-relative-name base-name project-root))
                (test-path (concat "spec/" (clean-relative-path relative-path) "_spec.rb")))
-          (find-file (expand-file-name test-path project-root)))
+          (find-file-other-window (expand-file-name test-path project-root)))
       (message "Not a Ruby file."))))
 
 (provide 'setup-ruby)
