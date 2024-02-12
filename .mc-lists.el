@@ -45,10 +45,10 @@
         mark-whole-buffer
         org-beginning-of-line
         org-return
-        org-self-insert-command
         revert-buffer
         rjsx-electric-gt
         rjsx-electric-lt
         toggle-input-method
+        tom/rspec-this-file
         wdired-finish-edit
         ))
