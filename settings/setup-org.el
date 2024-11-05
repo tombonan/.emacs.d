@@ -33,4 +33,8 @@
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "DONE")))
 
+(setq org-startup-folded 'showeverything) ;; Show it to me
+
+(setq org-use-sub-superscripts nil) ;; Disable superscripts (coding)
+
 (provide 'setup-org)

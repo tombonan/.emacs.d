@@ -22,4 +22,22 @@
 ;; Turn off blinking cursor
 (blink-cursor-mode -1)
 
+;; Font
+(add-to-list 'default-frame-alist
+             '(font . "Monaco"))
+
+;; Disable bold
+(set-face-attribute 'default nil :weight 'normal)
+
+;; Apply bold disable to all major modes
+(defun appearance/disable-all-bold-faces ()
+  "Disable bolding for all faces."
+  (interactive)
+  (mapc (lambda (face)
+          (set-face-attribute face nil :weight 'normal))
+        (face-list)))
+
+(add-hook 'after-load-theme-hook 'appearance/disable-all-bold-faces)
+(add-hook 'after-change-major-mode-hook 'appearance/disable-all-bold-faces)
+
 (provide 'appearance)

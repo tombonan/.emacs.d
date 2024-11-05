@@ -14,9 +14,12 @@
 ;; Change indentation from 4 spaces to 2
 (defun tom--web-mode-hook ()
   "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset 2)
-)
+  (setq web-mode-markup-indent-offset 2))
+
 (add-hook 'web-mode-hook  'tom--web-mode-hook)
+
+;; Change indentation from 4 spaces to 2
+(setq-default css-indent-offset 2)
 
 ;; emmet config
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes

@@ -18,6 +18,7 @@
         kill-ring-save
         markdown-outdent-or-delete
         org-end-of-line
+        org-self-insert-command
         org-yank
         sgml-delete-tag
         sgml-slash
@@ -43,12 +44,14 @@
         mac-mwheel-scroll
         mac-previous-tab-or-toggle-tab-bar
         mark-whole-buffer
+        mouse-set-region
         org-beginning-of-line
         org-return
         revert-buffer
         rjsx-electric-gt
         rjsx-electric-lt
         toggle-input-method
+        tom/goto-line-with-feedback
         tom/rspec-this-file
         wdired-finish-edit
         ))
