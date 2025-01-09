@@ -81,7 +81,7 @@
 (defun tom/rspec-this-file ()
   "Run the current file in rspec"
   (interactive)
-  (tom/test-this-file "bundle exec rspec"))
+  (tom/test-this-file "/Users/tombonan/.asdf/shims/bundle exec rspec"))
 
 (defun tom/jest-this-file ()
   "Run the current file in jest"
@@ -91,6 +91,6 @@
 (defun tom/rspec-this-line ()
   "Run an rspec block at the current cursor position"
   (interactive)
-  (tom/test-this-file "bundle exec rspec" (format-mode-line "%l")))
+  (tom/test-this-file "/Users/tombonan/.asdf/shims/bundle exec rspec" (format-mode-line "%l")))
 
 (provide 'buffer-defuns)
