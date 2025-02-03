@@ -36,6 +36,7 @@
 
 ;; JSON mode
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
+(add-to-list 'auto-mode-alist '("\\.jsonl\\'" . json-mode))
 
 ;; Arduino mode
 (add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
