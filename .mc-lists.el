@@ -16,6 +16,7 @@
         keyboard-escape-quit
         kill-region
         kill-ring-save
+        markdown-enter-key
         markdown-outdent-or-delete
         org-end-of-line
         org-self-insert-command
@@ -32,6 +33,8 @@
 (setq mc/cmds-to-run-once
       '(
         abort-recursive-edit
+        dired-find-file
+        dired-previous-line
         emmet-expand-line
         god-mode-all
         god-mode-self-insert

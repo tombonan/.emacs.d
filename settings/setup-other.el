@@ -3,12 +3,12 @@
 ;; Coffee script settings
 (custom-set-variables '(coffee-tab-width 2))
 
-;; Spectra Related Emacs Commands
-(defun tom/spectra-creds ()
+;; Open up default notes file
+(defun tom/open-notes ()
   (interactive)
-  (find-file "~/Documents/creds.org"))
+  (find-file "~/Documents/notes.org"))
 
-(global-set-key (kbd "C-c s") 'tom/spectra-creds)
+(global-set-key (kbd "C-c s") 'tom/open-notes)
 
 ;; restclient-mode setup
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
