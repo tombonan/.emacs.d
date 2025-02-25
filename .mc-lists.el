@@ -11,6 +11,7 @@
         downcase-region
         electric-newline-and-maybe-indent
         forward-sentence
+        haml-electric-backspace
         helm-ff-RET
         helm-keyboard-quit
         keyboard-escape-quit
