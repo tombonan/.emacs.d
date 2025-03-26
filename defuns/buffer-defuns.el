@@ -93,4 +93,16 @@
   (interactive)
   (tom/test-this-file "/Users/tombonan/.asdf/shims/bundle exec rspec" (format-mode-line "%l")))
 
+;; Mimic `bundle open` by opening a gem path in dired
+;;   example: tom/dired-bundle-open sidekiq
+(defun tom/dired-bundle-open (gem-name)
+  "Mimic `bundle open` by opening a gem path in dired."
+  (interactive "sEnter Ruby gem name: ")
+  (let* ((bundle-show-cmd (format "/Users/tombonan/.asdf/shims/bundle show %s" gem-name))
+         (gem-path (string-trim (shell-command-to-string bundle-show-cmd))))
+    (if (file-directory-p gem-path)
+        (dired gem-path)
+      (message "Error: Could not find gem '%s' or it is not installed." gem-name))))
+
+
 (provide 'buffer-defuns)
