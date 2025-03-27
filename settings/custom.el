@@ -17,11 +17,11 @@
                   fireplace flycheck go-mode god-mode groovy-mode
                   haml-mode helm helm-ag helm-ebdb helm-flyspell
                   helm-projectile helm-rg helm-swoop helm-tramp
-                  json-mode magit markdown-mode multiple-cursors
-                  neotree org-bullets powershell projectile-rails
-                  restclient rjsx-mode smartparens solarized-theme
-                  terraform-mode typescript-mode undo-tree web-mode
-                  yaml-mode)))
+                  json-mode kubernetes magit markdown-mode
+                  multiple-cursors neotree org-bullets powershell
+                  projectile-rails restclient rjsx-mode smartparens
+                  solarized-theme terraform-mode typescript-mode
+                  undo-tree web-mode yaml-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
