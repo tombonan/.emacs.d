@@ -104,5 +104,12 @@
         (dired gem-path)
       (message "Error: Could not find gem '%s' or it is not installed." gem-name))))
 
+(defun tom/cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer.
+Including indent-buffer, which should not be called automatically on save."
+  (interactive)
+  (untabify (point-min) (point-max))
+  (delete-trailing-whitespace)
+  (indent-region (point-min) (point-max)))
 
 (provide 'buffer-defuns)

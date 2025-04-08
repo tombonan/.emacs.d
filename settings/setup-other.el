@@ -40,6 +40,9 @@
 ;; JSON mode
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.jsonl\\'" . json-mode))
+(add-hook 'json-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook #'tom/cleanup-buffer nil t)))
 
 ;; Arduino mode
 (add-to-list 'auto-mode-alist '("\\.ino$" . arduino-mode))
