@@ -50,6 +50,17 @@
 ;; dotenv mode
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
 
+;; SQL formatting
+;;
+;; Requires pgformatter installation
+;;  - https://formulae.brew.sh/formula/pgformatter
+;;  - https://github.com/darold/pgFormatter
+(setq sqlformat-command 'pgformatter)
+;; Two-character indent and no statement grouping
+(setq sqlformat-args '("-s2" "-g"))
+;; Optional hook
+;; (add-hook 'sql-mode-hook 'sqlformat-on-save-mode)
+
 ;; misc
 (put 'downcase-region 'disabled nil)
 (setq flycheck-emacs-lisp-load-path 'inherit)
