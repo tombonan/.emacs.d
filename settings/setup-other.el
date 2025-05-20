@@ -65,4 +65,9 @@
 (put 'downcase-region 'disabled nil)
 (setq flycheck-emacs-lisp-load-path 'inherit)
 
+;; terraform
+;; Run `terraform fmt` on the current buffer when saving
+;;   - Requires `terraform` to be installed and in the path
+(setq terraform-format-on-save t)
+
 (provide 'setup-other)
