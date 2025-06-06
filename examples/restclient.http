@@ -1,0 +1,31 @@
+# -*- restclient -*-
+#
+# Example restclient-mode Definitions
+
+##
+# Microsoft OAuth 2.0 Flow
+#
+# This flow saves the `access_token` response to a variable called :access-token and
+# sends it in the header of the next request as a Bearer token
+#
+:client-id = xxx
+:client-secret = xxx
+:tenant-id = xxx
+#
+POST https://login.microsoftonline.com/:tenant-id/oauth2/v2.0/token
+Content-Type: application/x-www-form-urlencoded
+-> jq-set-var :access-token .access_token
+
+client_id=:client-id&client_secret=:client-secret&scope=https://graph.microsoft.com/.default&grant_type=client_credentials
+
+:auth-headers = <<
+Content-Type: application/json
+Authorization: Bearer :access-token
+#
+
+##
+# Fetch all users using the access token
+#
+GET https://graph.microsoft.com/v1.0/users
+:auth-headers
+#
