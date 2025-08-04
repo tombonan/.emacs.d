@@ -19,8 +19,8 @@
 (global-set-key [remap goto-line] 'tom/goto-line-with-feedback)
 
 ;; Manipulating current buffer file
-(global-set-key (kbd "C-x C-k") 'tom/delete-current-buffer-file)
-(global-set-key (kbd "C-x C-r") 'tom/rename-current-buffer-file)
+(global-set-key (kbd "C-x C-k") 'bufferfile-delete)
+(global-set-key (kbd "C-x C-r") 'bufferfile-rename)
 (global-set-key (kbd "C-x t") 'tom/touch-buffer-file)
 
 ;; Move more quickly around buffer

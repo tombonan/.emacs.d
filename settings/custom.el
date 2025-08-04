@@ -10,7 +10,7 @@
      default))
  '(magit-dispatch-arguments nil)
  '(package-selected-packages
-   '(arduino-mode avy bundler cider clj-refactor
+   '(arduino-mode avy bufferfile bundler cider clj-refactor
                   clojure-mode-extra-font-locking coffee-mode direx
                   dockerfile-mode dotenv-mode el-mock emacs-git-open
                   emmet-mode enh-ruby-mode ert-expectations
