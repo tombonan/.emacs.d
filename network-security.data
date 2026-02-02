@@ -1,7 +1,0 @@
-;;;; -*- mode: lisp-data -*-
-(
- (:id "sha1:ccfd2cc2a08c89a9b10969be8c1e926954d53e28" :fingerprints ("sha1:ef:2b:7b:b3:de:da:29:7b:a5:d7:d7:b5:29:e3:4c:6e:4b:41:26:9e" "sha1:b5:57:df:eb:72:f8:f3:63:70:e6:30:dc:b9:b6:b6:f0:04:66:25:0b") :host "stable.melpa.org:443" :conditions (:unknown-ca :invalid :same-cert))
- (:id "sha1:c74a0e3952a0bdc6cb8f056d2be23497f44fb4a8" :fingerprints ("sha1:8f:6c:a1:1f:59:3c:ca:cd:b5:d5:ab:9a:9c:bb:e1:2c:14:3b:3d:13") :host "api.au.xdr.trendmicro.com:443" :conditions (:unknown-ca :invalid :verify-cert))
- (:id "sha1:85b31c268009209a8d3c5387033b219264f7e62b" :fingerprints ("sha1:3a:b6:c6:9a:4e:66:31:d6:eb:d4:2d:fc:60:6b:aa:a5:52:91:8a:c3") :host "melpa.org:443" :conditions (:unknown-ca :invalid :verify-cert))
- (:id "sha1:fe34bfc31d6649e05f29484206e7c07946356260" :fingerprints ("sha1:67:67:c8:7c:06:80:0c:d3:2a:ad:4f:a7:f0:7b:e6:75:3e:d0:70:f4" "sha1:71:e6:50:09:4c:56:33:98:9d:37:43:ec:96:43:92:7c:73:6b:a3:5f") :host "api.xdr.trendmicro.com:443" :conditions (:unknown-ca :invalid :same-cert))
-)

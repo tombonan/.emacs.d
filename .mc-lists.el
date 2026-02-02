@@ -17,6 +17,8 @@
         keyboard-escape-quit
         kill-region
         kill-ring-save
+        markdown-beginning-of-line
+        markdown-end-of-line
         markdown-enter-key
         markdown-outdent-or-delete
         org-end-of-line

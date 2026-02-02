@@ -15,6 +15,8 @@
 (global-set-key (kbd "C-x C-2") 'tom/split-window-below-and-move-there)
 (global-set-key (kbd "C-x C-3") 'tom/split-window-right-and-move-there)
 
+(global-set-key (kbd "C-c n") 'tom/checkout-and-pull-default) ;; n for new??
+
 ;; key remappings
 (global-set-key [remap goto-line] 'tom/goto-line-with-feedback)
 
