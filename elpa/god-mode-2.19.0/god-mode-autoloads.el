@@ -28,6 +28,8 @@ evaluate `god-local-mode'.
 The mode's hook is called both when the mode is enabled and when
 it is disabled.
 
+\\{god-local-mode-map}
+
 (fn &optional ARG)" t)
 (autoload 'god-mode "god-mode" "\
 Toggle global `god-local-mode'." t)

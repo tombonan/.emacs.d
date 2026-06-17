@@ -9,8 +9,8 @@
 
 ;; Author: Chris Done <chrisdone@gmail.com>
 ;; URL: https://github.com/emacsorphanage/god-mode
-;; Package-Version: 20250714.2342
-;; Package-Revision: b09ad56dc884
+;; Package-Version: 2.19.0
+;; Package-Revision: e6eef24dbf73
 ;; Package-Requires: ((emacs "26.3"))
 
 ;; This file is not part of GNU Emacs.
@@ -359,7 +359,12 @@ returns a keymap to allow further key input, or nil if completely unbound."
        ((string-match "\\(.*\\) C-\\(.\\)$" key-string)
         (let* ((prefix (match-string 1 key-string))
                (last (match-string 2 key-string))
-               (fallback-key (string-trim (format "%s %s" prefix last)))
+               (key-str (format "%s %s" prefix last))
+               (fallback-key (if (>= emacs-major-version 28)
+                                 (string-trim-right key-str)
+                               (replace-regexp-in-string
+                                "[ \t\n\r]+$" "" ;; Remove trailing whitespace
+                                key-str)))
                (fallback-vector (read-kbd-macro fallback-key t))
                (fallback-binding (key-binding fallback-vector)))
           (cond
