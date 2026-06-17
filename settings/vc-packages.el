@@ -1,6 +1,8 @@
 ;; Configure packages from version control
 
-(use-package emacs-git-open
-  :vc (:url "https://github.com/tombonan/emacs-git-open"))
+(unless (package-installed-p 'emacs-git-open)
+  (package-vc-install "https://github.com/tombonan/emacs-git-open"))
+
+(require 'emacs-git-open)
 
 (provide 'vc-packages)
