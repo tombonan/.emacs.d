@@ -1,5 +1,10 @@
 .cask
 .DS_Store
+/elpa/
+/straight/build/
+/straight/build-cache.el
+/straight/repos/
+/straight/modified/
 
 /auto-save-list/
 /eshell/
@@ -15,6 +20,7 @@ tramp
 .projectile
 projectile-bookmarks.eld
 projectile.cache
+projectile-frecency.eld
 
 # Custom
 emacs-git-open.el

@@ -1,5 +1,4 @@
 (require 'clojure-mode)
-(require 'clojure-mode-extra-font-locking)
 (require 'cider)
 
 (setq cljr-favor-prefix-notation nil)

@@ -4,7 +4,7 @@
 ;;
 ;; https://kubernetes-el.github.io/kubernetes-el/
 (use-package kubernetes
-  :ensure t
+  :straight t
   :commands (kubernetes-overview)
   :config
   (setq kubernetes-poll-frequency 3600
