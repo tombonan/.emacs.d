@@ -43,6 +43,8 @@
 (straight-use-package 'cider)
 (straight-use-package 'clj-refactor)
 (straight-use-package 'coffee-mode)
+(straight-use-package 'markdown-mode)
+(straight-use-package 'go-mode)
 
 ;; Org
 (straight-use-package 'org-bullets)
