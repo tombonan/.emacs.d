@@ -42,8 +42,6 @@
 ;; Package requirements
 (require 'neotree)
 (require 'undo-tree)
-(require 'restclient)
-(require 'restclient-jq)
 (require 'avy)
 (require 'god-mode)
 (require 'emmet-mode)
